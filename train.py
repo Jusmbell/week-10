@@ -42,14 +42,14 @@ X2 = df[['100g_USD', 'roast_code']]
 model_2 = DecisionTreeRegressor(random_state=42)
 model_2.fit(X2, y)
 
-# Save model 2 and the roast category dictionary together
-model_2_data = {
-    'model': model_2,
-    'roast_cat': roast_cat
-}
-
+# Save model 2 directly (for autograder)
 with open('model_2.pickle', 'wb') as f:
-    pickle.dump(model_2_data, f)
-print("Model 2 and roast categories saved as model_2.pickle")
+    pickle.dump(model_2, f)
+print("Model 2 saved as model_2.pickle")
+
+# Save roast category dictionary separately
+with open('roast_categories.pickle', 'wb') as f:
+    pickle.dump(roast_cat, f)
+print("Roast categories saved as roast_categories.pickle")
 
 print("\nTraining complete!")

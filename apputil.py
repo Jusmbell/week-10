@@ -46,9 +46,10 @@ def predict_rating(df_X, text=False):
             model_1 = pickle.load(f)
         
         with open('model_2.pickle', 'rb') as f:
-            model_2_data = pickle.load(f)
-        model_2 = model_2_data['model']
-        roast_cat = model_2_data['roast_cat']
+            model_2 = pickle.load(f)
+        
+        with open('roast_categories.pickle', 'rb') as f:
+            roast_cat = pickle.load(f)
         
         # Initialize predictions array
         predictions = np.zeros(len(df_X))
